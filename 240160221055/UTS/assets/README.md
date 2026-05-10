@@ -77,12 +77,11 @@ Semua warna dan variabel desain ada di bagian `:root` dalam `custom.css`:
 ```
 
 ## Tampilan Web
-
-![Preview](images/Preview/home1.png)
-![Preview](images/Preview/about1.png)
-![Preview](images/Preview/portofolio1.png)
-![Preview](images/Preview/contact1.png)
-![Preview](images/Preview/home2.png)
-![Preview](images/Preview/aboutt2.png)
-![Preview](images/Preview/portofolio2.png)
-![Preview](images/Preview/contact2.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/home1.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/about1.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/portofolio1.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/contact1.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/home2.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/aboutt2.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/portofolio2.png)
+![Preview](https://raw.githubusercontent.com/Rasya-Putri-R91006/240160221055/main/240160221055/UTS/assets/images/preview/contact2.png)
