@@ -1,7 +1,5 @@
 import React from 'react';
-import InputTeks from './components/InputTeks';
 import TombolAuth from './components/TombolAuth';
-
 
 function App() {
   return (
@@ -14,5 +12,3 @@ function App() {
 }
 
 export default App;
-
-
