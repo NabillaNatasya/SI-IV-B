@@ -289,42 +289,65 @@ filterBtns.forEach(btn => {
 
 /* LIGHTBOX */
 
-const lightbox =
-document.getElementById("lightbox");
+window.addEventListener("DOMContentLoaded", () => {
 
-const lightboxImg =
-document.getElementById("lightbox-img");
+  const lightbox =
+  document.getElementById("lightbox");
 
-const closeLightbox =
-document.querySelector(".lightbox-close");
+  const lightboxImg =
+  document.getElementById("lightbox-img");
 
-document
-.querySelectorAll(".portfolio-image img")
-.forEach(img => {
+  const closeLightbox =
+  document.querySelector(".lightbox-close");
 
-  img.addEventListener("click", ()=>{
+  const portfolioImages =
+  document.querySelectorAll(".portfolio-image img");
 
-    lightbox.classList.add("show");
+  /* OPEN */
 
-    lightboxImg.src = img.src;
+  portfolioImages.forEach((img) => {
+
+    img.addEventListener("click", () => {
+
+      lightbox.classList.add("show");
+
+      lightboxImg.src = img.src;
+
+    });
+
+  });
+
+  /* CLOSE BUTTON */
+
+  closeLightbox.addEventListener("click", () => {
+
+    lightbox.classList.remove("show");
+
+  });
+
+  /* CLOSE OUTSIDE */
+
+  lightbox.addEventListener("click", (e) => {
+
+    if(e.target === lightbox){
+
+      lightbox.classList.remove("show");
+
+    }
 
   });
 
 });
 
-closeLightbox.addEventListener("click", ()=>{
+const sections = document.querySelectorAll(".section");
 
-  lightbox.classList.remove("show");
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.85;
 
+    if (top < trigger) {
+      sec.classList.add("show");
+    }
+  });
 });
-
-lightbox.addEventListener("click", (e)=>{
-
-  if(e.target === lightbox){
-
-    lightbox.classList.remove("show");
-
-  }
-
-});
-
