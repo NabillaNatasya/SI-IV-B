@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Kikan Khairani | Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- Loading Animation -->
     <div id="loading">
         <div class="loader"></div>
     </div>
-    <div class="hamburger">
-        <span></span>
-    </div>
 
+    <!-- Navigation Menu -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -32,16 +31,21 @@
                 <div class="theme-toggle">
                     <i class="fas fa-moon"></i>
                 </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-image">
-                    <img src="assets/images/khai.jpg" alt="Professional Profile" loading="lazy">
-                    
+                    <img src="assets/images/khai.jpg" alt="Kikan Khairani" loading="lazy">
                 </div>
                 <div class="hero-text">
                     <h1 class="animate-text">Kikan Khairani</h1>
@@ -52,17 +56,17 @@
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-x"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-dribbble"></i></a>
+                        <a href="https://github.com/kikan-khairani" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/kikan-khairani-7529772b8" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/kikankh50329" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/kikankh" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -77,96 +81,97 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>HTML5 & CSS3</span>
-                            <span>98%</span>
+                            <span class="skill-percent">98%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 98%"></div>
+                            <div class="progress" data-target="98"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>JavaScript/TypeScript</span>
-                            <span>60%</span>
+                            <span class="skill-percent">60%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 60%"></div>
+                            <div class="progress" data-target="60"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>React.js</span>
-                            <span>50%</span>
+                            <span class="skill-percent">50%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 50%"></div>
+                            <div class="progress" data-target="50"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Node.js</span>
-                            <span>95%</span>
+                            <span class="skill-percent">95%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 95%"></div>
+                            <div class="progress" data-target="95"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Python</span>
-                            <span>90%</span>
+                            <span class="skill-percent">90%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
+                            <div class="progress" data-target="90"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>UI/UX Design</span>
-                            <span>90%</span>
+                            <span class="skill-percent">90%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
+                            <div class="progress" data-target="90"></div>
                         </div>
                     </div>
                 </div>
             </div>
         
+            <!-- Education Timeline -->
             <div class="education">
                 <h3>Education Timeline</h3>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date-wrapper">
-                            <div class="timeline-date">2020 - Present</div>
+                            <div class="timeline-date">2024 – Present</div>
                         </div>
                         <div class="timeline-content-wrapper">
                             <div class="timeline-content">
-                                <h4>Master's Degree in Computer Science</h4>
-                                <p>University of Technology, Jakarta</p>
-                                <p>Specializing in Artificial Intelligence and Machine Learning</p>
+                                <h4>Higher Education (University)</h4>
+                                <p>Universitas Sebelas April</p>
+                                <p>Major in Information Systems</p>
                             </div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date-wrapper">
-                            <div class="timeline-date">2016 - 2020</div>
+                            <div class="timeline-date">2021 – 2024</div>
                         </div>
                         <div class="timeline-content-wrapper">
                             <div class="timeline-content">
-                                <h4>Bachelor's Degree in Software Engineering</h4>
-                                <p>Institute of Technology Bandung</p>
-                                <p>Cum Laude, GPA: 3.85/4.00</p>
+                                <h4>Vocational High School (SMK)</h4>
+                                <p>SMK Ma'arif 2 Sumedang</p>
+                                <p>Major in Computer and Network Engineering (TKJ)</p>
                             </div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date-wrapper">
-                            <div class="timeline-date">2014 - 2016</div>
+                            <div class="timeline-date">2018 – 2021</div>
                         </div>
                         <div class="timeline-content-wrapper">
                             <div class="timeline-content">
-                                <h4>High School Diploma</h4>
-                                <p>National High School, Jakarta</p>
-                                <p>Science Major with Mathematics and Physics</p>
+                                <h4>Junior High School (SMP)</h4>
+                                <p>SMP Negeri 2 Tanjungkerta</p>
+                                <p>Completed secondary education with a focus on academic development and extracurricular activities.</p>
                             </div>
                         </div>
                     </div>
@@ -175,20 +180,20 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">My Portfolio</h2>
             <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-                <button class="filter-btn" data-filter="design">UI/UX Design</button>
             </div>
             <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be loaded dynamically via JavaScript -->
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -199,15 +204,15 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>john.doe@example.com</span>
+                            <span>240160221019@student.unsap.ac.id</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+62 812 3456 7890</span>
+                            <span>+62 857 2354 5010</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Jakarta, Indonesia</span>
+                            <span>Sumedang, Indonesia</span>
                         </div>
                     </div>
                 </div>
@@ -231,12 +236,14 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 John Doe. All rights reserved. Built with <i class="fas fa-heart"></i> for the web.</p>
+            <p>&copy; 2026. All rights reserved. Built with <i class="fas fa-heart"></i> for the web.</p>
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
         <img class="lightbox-content" id="lightboxImage">

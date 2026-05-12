@@ -1,54 +1,24 @@
+// Portfolio Projects Data - 2 Project E-Commerce Platform
 const projects = [
     {
         id: 1,
         title: "E-Commerce Platform",
         description: "Full-stack e-commerce solution with payment integration",
         category: "web",
-        image: "https://via.placeholder.com/400x300/4A90E2/ffffff?text=E-Commerce",
-        lightboxImage: "https://via.placeholder.com/800x600/4A90E2/ffffff?text=E-Commerce+Platform"
+        image: "assets/images/ecommerce.jpg",
+        lightboxImage: "assets/images/ecommerce.jpg"
     },
     {
         id: 2,
-        title: "Task Management App",
-        description: "Mobile app for team productivity and task tracking",
-        category: "mobile",
-        image: "https://via.placeholder.com/400x300/764ba2/ffffff?text=Task+App",
-        lightboxImage: "https://via.placeholder.com/800x600/764ba2/ffffff?text=Task+Management+App"
-    },
-    {
-        id: 3,
-        title: "Banking Dashboard",
-        description: "UI/UX design for modern banking interface",
-        category: "design",
-        image: "https://via.placeholder.com/400x300/667eea/ffffff?text=Banking+Dashboard",
-        lightboxImage: "https://via.placeholder.com/800x600/667eea/ffffff?text=Banking+Dashboard+Design"
-    },
-    {
-        id: 4,
-        title: "Social Media Analytics",
-        description: "Web platform for social media insights and analytics",
+        title: "Student Management Platform",
+        description: "Manage student data in one integrated platform.",
         category: "web",
-        image: "https://via.placeholder.com/400x300/f093fb/ffffff?text=Analytics",
-        lightboxImage: "https://via.placeholder.com/800x600/f093fb/ffffff?text=Social+Media+Analytics"
-    },
-    {
-        id: 5,
-        title: "Fitness Tracker",
-        description: "Mobile app for workout and nutrition tracking",
-        category: "mobile",
-        image: "https://via.placeholder.com/400x300/4facfe/ffffff?text=Fitness+Tracker",
-        lightboxImage: "https://via.placeholder.com/800x600/4facfe/ffffff?text=Fitness+Tracker+App"
-    },
-    {
-        id: 6,
-        title: "Portfolio Website",
-        description: "Creative portfolio design for digital artist",
-        category: "design",
-        image: "https://via.placeholder.com/400x300/00f2fe/ffffff?text=Portfolio+Design",
-        lightboxImage: "https://via.placeholder.com/800x600/00f2fe/ffffff?text=Portfolio+Website+Design"
+        image: "assets/images/student.jpg",
+        lightboxImage: "assets/images/student.jpg"
     }
 ];
 
+// Loading Animation
 window.addEventListener('load', () => {
     const loading = document.getElementById('loading');
     setTimeout(() => {
@@ -59,6 +29,7 @@ window.addEventListener('load', () => {
     }, 1000);
 });
 
+// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -68,17 +39,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
-            
             const navLinksMenu = document.querySelector('.nav-links');
             if (navLinksMenu) {
                 navLinksMenu.classList.remove('active');
             }
-            document.body.style.overflow = 'auto';
         }
     });
 });
 
-
+// Active Navigation Link on Scroll
 function updateActiveNav() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -86,7 +55,6 @@ function updateActiveNav() {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
@@ -101,8 +69,9 @@ function updateActiveNav() {
 }
 
 window.addEventListener('scroll', updateActiveNav);
-updateActiveNav(); 
+updateActiveNav();
 
+// Dark/Light Mode Toggle
 const themeToggle = document.querySelector('.theme-toggle');
 const currentTheme = localStorage.getItem('theme') || 'light';
 
@@ -128,6 +97,7 @@ if (themeToggle) {
     });
 }
 
+// Hamburger Menu
 const hamburger = document.querySelector('.hamburger');
 const navLinksMenu = document.querySelector('.nav-links');
 
@@ -145,6 +115,68 @@ if (hamburger && navLinksMenu) {
     });
 }
 
+// ========== PROGRESS BAR ANIMATION - MAJU MUNDUR TERUS ==========
+// Fungsi untuk mendapatkan target persentase dari setiap skill
+function getTargetPercentage(progressBar) {
+    const skillItem = progressBar.closest('.skill-item');
+    if (skillItem) {
+        const percentSpan = skillItem.querySelector('.skill-percent');
+        if (percentSpan) {
+            return parseInt(percentSpan.textContent);
+        }
+    }
+    return 0;
+}
+
+// Fungsi untuk cek apakah element visible di viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+    
+    // Cek apakah element visible (masuk layar)
+    return (
+        rect.top < windowHeight - 50 &&
+        rect.bottom > 50 &&
+        rect.left < windowWidth &&
+        rect.right > 0
+    );
+}
+
+// Fungsi utama untuk update progress bar (MAJU MUNDUR TERUS)
+function updateProgressBarsContinuously() {
+    const allProgressBars = document.querySelectorAll('.progress');
+    
+    allProgressBars.forEach(progressBar => {
+        const isVisible = isElementInViewport(progressBar);
+        const targetPercent = getTargetPercentage(progressBar);
+        
+        if (isVisible) {
+            // Jika visible di layar -> gerak maju (ke target persentase)
+            if (progressBar.style.width !== targetPercent + '%') {
+                progressBar.style.transition = 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                progressBar.style.width = targetPercent + '%';
+            }
+        } else {
+            // Jika tidak visible (keluar layar) -> mundur (ke 0%)
+            if (progressBar.style.width !== '0%' && progressBar.style.width !== '') {
+                progressBar.style.transition = 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                progressBar.style.width = '0%';
+            }
+        }
+    });
+}
+
+// Inisialisasi progress bar (semua mulai dari 0)
+function initProgressBars() {
+    const progressBars = document.querySelectorAll('.progress');
+    progressBars.forEach(bar => {
+        bar.style.width = '0%';
+        bar.style.transition = 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+}
+
+// ========== PORTFOLIO FUNCTIONS ==========
 function renderPortfolioItems(filter = 'all') {
     const portfolioGrid = document.getElementById('portfolioGrid');
     if (!portfolioGrid) return;
@@ -152,6 +184,15 @@ function renderPortfolioItems(filter = 'all') {
     const filteredProjects = filter === 'all' 
         ? projects 
         : projects.filter(project => project.category === filter);
+    
+    if (filteredProjects.length === 0) {
+        portfolioGrid.innerHTML = `
+            <div style="text-align: center; padding: 2rem; grid-column: 1/-1;">
+                <p>No projects found in this category.</p>
+            </div>
+        `;
+        return;
+    }
     
     portfolioGrid.innerHTML = filteredProjects.map(project => `
         <div class="portfolio-item" data-category="${project.category}" data-id="${project.id}">
@@ -164,37 +205,20 @@ function renderPortfolioItems(filter = 'all') {
             <div class="portfolio-info">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <span class="portfolio-category">${getCategoryLabel(project.category)}</span>
+                <span class="portfolio-category">Web Development</span>
             </div>
         </div>
     `).join('');
     
     document.querySelectorAll('.portfolio-item').forEach(item => {
-        item.addEventListener('click', (e) => {
-            if (e.target.closest('.portfolio-overlay') || e.target.closest('.portfolio-category')) {
-                const projectId = parseInt(item.dataset.id);
-                const project = projects.find(p => p.id === projectId);
-                if (project) {
-                    openLightbox(project.lightboxImage, project.title);
-                }
-            } else {
-                const projectId = parseInt(item.dataset.id);
-                const project = projects.find(p => p.id === projectId);
-                if (project) {
-                    openLightbox(project.lightboxImage, project.title);
-                }
+        item.addEventListener('click', () => {
+            const projectId = parseInt(item.dataset.id);
+            const project = projects.find(p => p.id === projectId);
+            if (project) {
+                openLightbox(project.lightboxImage, project.title);
             }
         });
     });
-}
-
-function getCategoryLabel(category) {
-    const labels = {
-        'web': 'Web Development',
-        'mobile': 'Mobile App',
-        'design': 'UI/UX Design'
-    };
-    return labels[category] || category;
 }
 
 function setupPortfolioFilters() {
@@ -205,13 +229,13 @@ function setupPortfolioFilters() {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            
             const filterValue = button.getAttribute('data-filter');
             renderPortfolioItems(filterValue);
         });
     });
 }
 
+// ========== LIGHTBOX FUNCTIONS ==========
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
 const lightboxCaption = document.getElementById('lightboxCaption');
@@ -251,6 +275,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ========== CONTACT FORM VALIDATION ==========
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
@@ -306,28 +331,10 @@ function showFormMessage(message, type) {
     }
 }
 
-function animateProgressBars() {
-    const progressBars = document.querySelectorAll('.progress');
-    if (!progressBars.length) return;
-    
-    const windowHeight = window.innerHeight;
-    const triggerPoint = windowHeight - 100;
-    
-    progressBars.forEach(bar => {
-        const barPosition = bar.getBoundingClientRect().top;
-        if (barPosition < triggerPoint) {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        }
-    });
-}
-
+// ========== LAZY LOADING ==========
 function initLazyLoading() {
     if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
@@ -343,52 +350,7 @@ function initLazyLoading() {
     }
 }
 
-const style = document.createElement('style');
-style.textContent = `
-    img[loading="lazy"] {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    img[loading="lazy"].loaded {
-        opacity: 1;
-    }
-`;
-document.head.appendChild(style);
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderPortfolioItems('all');
-    setupPortfolioFilters();
-    initLazyLoading();
-    
-    const skillItems = document.querySelectorAll('.skill-item');
-    if (skillItems.length && 'IntersectionObserver' in window) {
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        skillItems.forEach(item => skillObserver.observe(item));
-    }
-});
-
-const skillStyle = document.createElement('style');
-skillStyle.textContent = `
-    .skill-item {
-        opacity: 0;
-        transform: translateX(-20px);
-        transition: all 0.5s ease;
-    }
-    .skill-item.animate {
-        opacity: 1;
-        transform: translateX(0);
-    }
-`;
-document.head.appendChild(skillStyle);
-
+// ========== THROTTLE FUNCTION ==========
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -402,44 +364,115 @@ function throttle(func, limit) {
     };
 }
 
+// ========== SKILL ITEMS ANIMATION ==========
+function animateSkillItems() {
+    const skillItems = document.querySelectorAll('.skill-item');
+    const windowHeight = window.innerHeight;
+    
+    skillItems.forEach(item => {
+        const itemPosition = item.getBoundingClientRect().top;
+        if (itemPosition < windowHeight - 50) {
+            item.classList.add('animate');
+        }
+    });
+}
+
+// ========== REVEAL ANIMATION ==========
+function initRevealAnimation() {
+    const revealElements = document.querySelectorAll('.about-content, .education, .portfolio-grid, .contact-content');
+    
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        revealElements.forEach(element => {
+            element.classList.add('reveal');
+            revealObserver.observe(element);
+        });
+    }
+}
+
+// ========== TIMELINE ANIMATION ==========
+function initTimelineAnimation() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        item.style.animation = `fadeInTimeline 0.6s ease forwards ${index * 0.2 + 0.2}s`;
+    });
+}
+
+// ========== INITIALIZE ALL ON PAGE LOAD ==========
+document.addEventListener('DOMContentLoaded', () => {
+    // Portfolio
+    renderPortfolioItems('all');
+    setupPortfolioFilters();
+    
+    // Lazy Loading
+    initLazyLoading();
+    
+    // Progress Bars - Reset ke 0 dulu
+    initProgressBars();
+    
+    // Skill Items Animation
+    animateSkillItems();
+    
+    // Reveal Animation
+    initRevealAnimation();
+    
+    // Timeline Animation
+    initTimelineAnimation();
+    
+    // Trigger progress bar update pertama
+    setTimeout(() => {
+        updateProgressBarsContinuously();
+    }, 500);
+});
+
+// Scroll event untuk progress bar (MAJU MUNDUR TERUS setiap scroll)
 window.addEventListener('scroll', throttle(() => {
     updateActiveNav();
-    animateProgressBars();
-}, 100));
+    updateProgressBarsContinuously();  // Progress bar update setiap scroll
+    animateSkillItems();
+}, 20));
 
-function preloadImages() {
-    const criticalImages = [
-        'https://via.placeholder.com/400x400/4A90E2/ffffff?text=Professional+Photo'
-    ];
+// Load event tambahan
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        updateProgressBarsContinuously();
+    }, 300);
+});
+
+// Juga update saat resize window
+window.addEventListener('resize', () => {
+    updateProgressBarsContinuously();
+});
+
+// ========== CSS ANIMATIONS STYLES ==========
+const style = document.createElement('style');
+style.textContent = `
+    img[loading="lazy"] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    img[loading="lazy"].loaded {
+        opacity: 1;
+    }
     
-    criticalImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-}
-
-window.addEventListener('load', preloadImages);
-
-const revealElements = document.querySelectorAll('.about-content, .education, .portfolio-grid, .contact-content');
-
-if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+    .skill-item {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.5s ease;
+    }
+    .skill-item.animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
     
-    revealElements.forEach(element => {
-        element.classList.add('reveal');
-        revealObserver.observe(element);
-    });
-}
-
-const revealStyle = document.createElement('style');
-revealStyle.textContent = `
     .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -449,7 +482,18 @@ revealStyle.textContent = `
         opacity: 1;
         transform: translateY(0);
     }
+    
+    @keyframes fadeInTimeline {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 `;
-document.head.appendChild(revealStyle);
+document.head.appendChild(style);
 
-console.log('Portfolio website loaded successfully!');
+console.log('Portfolio website loaded successfully! - 2 Project E-Commerce Platform');
