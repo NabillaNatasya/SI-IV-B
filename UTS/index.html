@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio Sutiawan</title>
+
+  <!-- Light Mode Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon-light.png" media="(prefers-color-scheme: light)">
+
+  <!-- Dark Mode Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon-dark.png" media="(prefers-color-scheme: dark)">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="text-gray-800">
+
+  <div id="page-loader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f5f1ea]">
+
+    <div class="flex flex-col items-center gap-5">
+
+      <div class="w-14 h-14 border-[3px] border-gray-300 border-t-black rounded-full animate-spin"></div>
+
+      <h1 class="text-2xl font-black tracking-tight animate-pulse">
+        SUTIAWAN_
+      </h1>
+
+    </div>
+
+  </div>
+
+
+  <!-- Components -->
+  <div id="navbar"></div>
+  <div id="hero"></div>
+  <div id="about"></div>
+  <div id="experience"></div>
+  <div id="project"></div>
+  <div id="explore-projects"></div>
+  <div id="footer"></div>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    window.onload = function () {
+      const loader = document.getElementById("page-loader");
+
+      setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 700);
+
+      }, 2000);
+    };
+  </script>
+
+</body>
+
+</html>
